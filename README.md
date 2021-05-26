@@ -19,6 +19,7 @@ Use at your own risk. I accept no liability to any injury or harm caused by the 
 
 # Todo
 
-[ ] - Allow passing overriding config variables from command line for mysql backups
-[ ] - Allow passing parametes from command line for ftpup. 
-[ ] - Add iptables examples for ftpup command
+- [ ] Reformat README and add quick install snippets for every command.
+- [ ] Allow passing overriding config variables from command line for mysql backups
+- [ ] Allow passing parametes from command line for ftpup. 
+- [ ] Add iptables examples for ftpup command
