@@ -1,0 +1,38 @@
+#!/bin/bash
+
+###########################################################################
+# ftpup - a dead simple ftp server 0.1
+# https://github.com/AkselMeola/server-scripts
+#
+# A simple ftp server to quickly allow ftp connections to a pointed directory.
+#
+# Running server
+# ---------------------
+# Run the server with a document root directory
+#
+# Example: sudo ftpup /path/to/be/your/ftp/root
+#
+# You should now have the FTP server running, and the ftp root directory is the directory you specified.
+#
+# Connecting to server
+# ---------------------
+# Server runs on an anonymous account with write privileges.
+# So to connect to a server point your ftp client to localhost at port 21
+#
+#   Host: 127.0.0.1
+#   Port: 21
+#   Username: anonymous
+#   Password: something@random.com
+#
+############################################################################
+
+PORT=21
+
+echo "Simple FTP Server v0.1"
+echo "Starting ftp server ... "
+echo "Press Ctrl+C to exit."
+
+python -m pyftpdlib --directory=$1 --port=$PORT --write
+
+
+

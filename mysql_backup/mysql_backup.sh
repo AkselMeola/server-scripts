@@ -22,14 +22,18 @@
 # Installation
 # ------------
 #
-# 1. Download script and place it into your executables directory. 
+# 1. Download script and place it into your executables directory and make it executable 
 #
-#	Example: TODO: 
+#	Example: 
+#	  sudo curl https://raw.githubusercontent.com/AkselMeola/server-scripts/main/mysql/mysql_backup.sh > /usr/local/bin/mysql_backup.sh
+#   sudo chmod +x  /usr/local/bin/mysql_backup.sh
 #
-# 2. Setup a cron job to run daily
+# 2. Modify the configuration variables in the script's "Configuration variables" section 
 #
-#	Example: TODO:
+# 3. Setup a cron job to run daily. 
 #
+#	Example: Run every day at 4:40 am
+#	  40 4 * * *  /usr/local/bin/mysql_backup.sh > /var/log/mysql_backup.log
 #
 #
 ########################################################################### 
