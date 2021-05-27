@@ -42,8 +42,10 @@
 #
 # How many days to keep backups 
 KEEP_BACKUPS_DAYS=30
+
 # Directory where backups are stored (without trailing slash)
-BACKUP_DIR="~/backups/database"
+BACKUP_DIR=~/backups/database
+
 # Skip schemas from backup
 SKIP_SCHEMAS=("mysql" "information_schema" "performance_schema" "sys")
 

@@ -57,14 +57,14 @@ EXPIRED_BACKUP_DIR="$BACKUP_DIR/$DEL_TIMESTAMP"
 BACKUP_DIR="$BACKUP_DIR/$CUR_TIMESTAMP"
 
 # Remove expired backup directory
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] removing expired backups directory $EXPIRED_BACKUP_DIR"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] INFO: removing expired backups directory $EXPIRED_BACKUP_DIR"
 rm -rf $EXPIRED_BACKUP_DIR
 
 # Create dated backups directory
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] creating directory $BACKUP_DIR"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] INFO: creating directory $BACKUP_DIR"
 mkdir -p $BACKUP_DIR
 if [[ $? != 0 ]]; then
-  echo "Unable to create backups directory at $BACKUP_DIR"
+  echo "ERROR: Unable to create backups directory at $BACKUP_DIR"
   exit 1
 fi
 
@@ -73,14 +73,14 @@ for backupPath in ${BACKUP_PATHS[@]}; do
   # Expand wildcard paths
   for realPath in $(realpath $backupPath); do
     if [[ " ${SKIP_PATHS[*]} " == *" $realPath "* ]]; then
-       echo "[$(date '+%Y-%m-%d %H:%M:%S')] Skipping path: $realPath"
+       echo "[$(date '+%Y-%m-%d %H:%M:%S')] INFO: skipping path: $realPath"
        continue
     fi
 
     backupsBasename=$(basename $(dirname "$realPath"))
     backupsDestinationPath="$BACKUP_DIR/$backupsBasename"
 
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Backing up $realPath"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] INFO: backing up $realPath"
 
     # Prepare destination and copy files
     mkdir -p $backupsDestinationPath
@@ -91,9 +91,9 @@ done
 
 # Report on backups directory size
 BACKUP_SIZE=`du -sh $BACKUP_DIR | cut -d'/' -f1`
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] backup size for $BACKUP_DIR: $BACKUP_SIZE"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] INFO: backup size for $BACKUP_DIR: $BACKUP_SIZE"
 
 # We are done
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] backup process finished. All done."
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] INFO: backup process finished. All done."
 
 exit 0

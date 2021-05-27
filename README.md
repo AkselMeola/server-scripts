@@ -26,3 +26,5 @@ Use at your own risk. I accept no liability to any injury or harm caused by the 
 - [ ] Allow passing parametes from command line for ftpup. 
 - [ ] Add iptables examples for ftpup command
 - [ ] Add option to Gzip file backups
+- [ ] Create library of common functions and allow compiling includes into scripts.
+      Can then be used to create releases.  
