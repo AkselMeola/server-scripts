@@ -30,8 +30,7 @@
 # How many days to keep backups
 KEEP_BACKUPS_DAYS=30
 # Directory where backups are stored (without trailing slash)
-#BACKUP_DIR="~/backups/files"
-BACKUP_DIR="/tmp/test/backups"
+BACKUP_DIR="~/backups/files"
 # Paths to back up
 BACKUPS_PATHS=(
   "/var/www/*"
