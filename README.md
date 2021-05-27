@@ -11,6 +11,8 @@ Collection of scripts for copy-paste
 #### Ftp
 - [ftpup/ftpup](ftpup/ftpup) - simple python ftp server.
 
+#### Files
+- [files_backup/files_backup.sh](files_backup/files_backup.sh) - create backups of files.
 
 
 # Disclaimer
@@ -23,3 +25,4 @@ Use at your own risk. I accept no liability to any injury or harm caused by the 
 - [ ] Allow passing overriding config variables from command line for mysql backups
 - [ ] Allow passing parametes from command line for ftpup. 
 - [ ] Add iptables examples for ftpup command
+- [ ] Add option to Gzip file backups

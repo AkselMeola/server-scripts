@@ -25,7 +25,7 @@
 # 1. Download script and place it into your executables directory and make it executable 
 #
 #	Example: 
-#	  sudo curl https://raw.githubusercontent.com/AkselMeola/server-scripts/main/mysql/mysql_backup.sh > /usr/local/bin/mysql_backup.sh
+#	  sudo curl https://raw.githubusercontent.com/AkselMeola/server-scripts/main/mysql_backup/mysql_backup.sh > /usr/local/bin/mysql_backup.sh
 #   sudo chmod +x  /usr/local/bin/mysql_backup.sh
 #
 # 2. Modify the configuration variables in the script's "Configuration variables" section 
@@ -60,8 +60,8 @@ EXEC_MYSQL=$(which mysql)
 EXEC_MYSQLDUMP=$(which mysqldump)
 
 # Create backups dated paths
-BACKUP_DIR="$BACKUP_DIR/$CUR_TIMESTAMP"
 EXPIRED_BACKUP_DIR="$BACKUP_DIR/$DEL_TIMESTAMP"
+BACKUP_DIR="$BACKUP_DIR/$CUR_TIMESTAMP"
 
 # Create dated backups directory
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] creating directory $BACKUP_DIR"
