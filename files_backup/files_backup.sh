@@ -44,6 +44,12 @@ SKIP_PATHS=(
   ~/domains/www.example.com/public/tmp
 )
 
+# Backed up files are prefixed with this string (optional, without leading slash)
+# Example: DESTINATION_PREFIX="domains/"
+# Resulting paths would then be:
+#    ~/backups/files/YYYY-MM-DD/domains/htdocs
+#    ~/backups/files/YYYY-MM-DD/domains/testing
+DESTINATION_PREFIX=""
 
 #
 # !!! Do not edit below unless you know what you are doing. !!!
@@ -78,7 +84,7 @@ for backupPath in ${BACKUP_PATHS[@]}; do
     fi
 
     backupsBasename=$(basename $(dirname "$realPath"))
-    backupsDestinationPath="$BACKUP_DIR/$backupsBasename"
+    backupsDestinationPath="$BACKUP_DIR/${DESTINATION_PREFIX}${backupsBasename}"
 
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] INFO: backing up $realPath"
 
