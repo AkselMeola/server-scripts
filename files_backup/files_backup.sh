@@ -29,16 +29,19 @@
 #
 # How many days to keep backups
 KEEP_BACKUPS_DAYS=30
+
 # Directory where backups are stored (without trailing slash)
-BACKUP_DIR="~/backups/files"
+BACKUP_DIR=~/backups/files
+
 # Paths to back up
-BACKUPS_PATHS=(
-  "/var/www/*"
-  "~/*"
+BACKUP_PATHS=(
+  ~/domains/www.example.com/htdocs
+  ~/domains/www.example.com/testing
 )
+
 # Paths to skip in those paths (full paths)
 SKIP_PATHS=(
-  "/var/www/cgi-bin"
+  ~/domains/www.example.com/public/tmp
 )
 
 
@@ -66,7 +69,7 @@ if [[ $? != 0 ]]; then
 fi
 
 # Loop ${backup paths
-for backupPath in $BACKUPS_PATHS; do
+for backupPath in ${BACKUP_PATHS[@]}; do
   # Expand wildcard paths
   for realPath in $(realpath $backupPath); do
     if [[ " ${SKIP_PATHS[*]} " == *" $realPath "* ]]; then
@@ -74,13 +77,15 @@ for backupPath in $BACKUPS_PATHS; do
        continue
     fi
 
-    # Get parent directory of array backup file
-    backupsBasename=$(basename $(realpath "$realPath/.."))
+    backupsBasename=$(basename $(dirname "$realPath"))
     backupsDestinationPath="$BACKUP_DIR/$backupsBasename"
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Backing up to $backupsBasename: $realPath"
 
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Backing up $realPath"
+
+    # Prepare destination and copy files
     mkdir -p $backupsDestinationPath
-    cp -rf $realPath $backupsDestinationPath
+    cp -rf $realPath $backupsDestinationPath/
+
   done
 done
 
