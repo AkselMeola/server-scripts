@@ -68,7 +68,7 @@ if [[ $? != 0 ]]; then
   exit 1
 fi
 
-# Loop ${backup paths
+# Loop backup paths
 for backupPath in ${BACKUP_PATHS[@]}; do
   # Expand wildcard paths
   for realPath in $(realpath $backupPath); do

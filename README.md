@@ -14,6 +14,8 @@ Collection of scripts for copy-paste
 #### Files
 - [files_backup/files_backup.sh](files_backup/files_backup.sh) - create backups of files.
 
+#### Remote backups
+- [remote_backup/remote_backup.sh](remote_backup/remote_backup.sh) - backup remote files locally. 
 
 # Disclaimer
 
